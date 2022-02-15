@@ -46,11 +46,27 @@ namespace Blazm.Hid
         [JSInvokable]
         public void HandleOnInputReport(int reportId,byte[] data)
         {
-            Notification?.Invoke(this, new OnInputReportArgs() { ReportId = reportId, Data = data });
+            ReportReceived?.Invoke(this, new OnInputReportArgs() { ReportId = reportId, Data = data });
         }
-        public event EventHandler<OnInputReportArgs> Notification;
-        
 
+        public event EventHandler<OnInputReportArgs> ReportReceived;
+
+        [JSInvokable]
+        public void HandleOnConnected()
+        {
+            Connected?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler Connected;
+
+
+        [JSInvokable]
+        public void HandleOnDisconnected()
+        {
+            Disconnected?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler Disconnected;
 
         //Promise<DataView> receiveFeatureReport([EnforceRange] octet reportId);
 

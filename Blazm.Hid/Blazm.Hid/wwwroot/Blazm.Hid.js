@@ -27,7 +27,7 @@ function returnHidDevice(device) {
         "ProductName": device.productName,
         "Id": device.vendorId + '-' + device.productId,
         "VendorId": device.vendorId,
-        "ProductId":device.productId
+        "ProductId": device.productId,
     };
 }
 
@@ -57,6 +57,15 @@ export async function openDevice(deviceId,devicehandler) {
     };
 
     await device.open();
+
+    if (device.opened) {
+        console.log("js - device is opened!");
+        await device.NotificationHandler.invokeMethodAsync('HandleOnConnected');
+    } else {
+        console.log("js - device is not opened!");
+	}
+        
+
     return device.opened;
 }
 
