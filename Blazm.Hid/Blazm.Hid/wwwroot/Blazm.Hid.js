@@ -35,6 +35,12 @@ export async function closeDevice(deviceId) {
     var device = devices.filter(function (item) {
         return item.id == deviceId;
     });
+    await device.close();
+
+    if (!device.opened) {
+        await device.NotificationHandler.invokeMethodAsync('HandleOnDisconnected');
+    }
+
 }
 export async function getDevices() {
     PairedUSBDevices = await navigator.hid.getDevices();
@@ -52,18 +58,15 @@ export async function openDevice(deviceId,devicehandler) {
     //Add NotificationHandler
     device.NotificationHandler = devicehandler;
     device.oninputreport = async (e) => {
-        console.log(e.data)
+        //console.log(e.data)
         await e.srcElement.NotificationHandler.invokeMethodAsync('HandleOnInputReport', e.reportId, new Uint8Array(e.data.buffer));
     };
 
     await device.open();
 
     if (device.opened) {
-        console.log("js - device is opened!");
         await device.NotificationHandler.invokeMethodAsync('HandleOnConnected');
-    } else {
-        console.log("js - device is not opened!");
-	}
+    }
         
 
     return device.opened;

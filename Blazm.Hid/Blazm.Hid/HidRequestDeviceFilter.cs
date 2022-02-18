@@ -2,6 +2,6 @@
 {
     public class HidDeviceRequestOptions
     {
-        public HidDeviceFilter[] filters { get; set; }
+        public IHidFilter[] filters { get; set; }
     }
 }

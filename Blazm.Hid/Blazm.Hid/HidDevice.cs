@@ -3,11 +3,13 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace Blazm.Hid
 {
 
     [Serializable]
-    public partial class HidDevice
+    public partial class HidDevice : IHidDevice
     {
         private HidNavigator _webHidNavigator;
         public void InitHidDevice(HidNavigator webhidNavigator)
@@ -19,7 +21,7 @@ namespace Blazm.Hid
         public string? ProductName { get; set; }
         public ushort? VendorId { get; set; }
         public ushort? ProductId { get; set; }
-        public bool Opened { get; set; }
+        public bool Opened { get; private set; }
 
         public async Task OpenAsync()
         {
@@ -67,8 +69,6 @@ namespace Blazm.Hid
         }
 
         public event EventHandler Disconnected;
-
-        //Promise<DataView> receiveFeatureReport([EnforceRange] octet reportId);
 
     }
 }

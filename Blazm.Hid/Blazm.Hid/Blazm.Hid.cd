@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Blazm.Hid.FilterBase">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAAAAEAAAAAAAAAAAAAAAABAAAAAAgAAAAAAgA=</HashCode>
+      <FileName>FilterBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blazm.Hid.HidDeviceFilter">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAAAAEAAAAAAAAAAAAAAAABAAAAAAgAAAAAAgA=</HashCode>
+      <FileName>HidDeviceFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blazm.Hid.HidDevice">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBACAAAAAAAAQAABQAAAAAAAkAAAEBCAAEgAAgCIAAA=</HashCode>
+      <FileName>HidDevice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Blazm.Hid.IHidDevice">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAkAAAEACAAEAAAgAAAAA=</HashCode>
+      <FileName>IHidDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

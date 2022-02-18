@@ -1,4 +1,5 @@
-﻿namespace Blazm.Hid
+﻿
+namespace Blazm.Hid
 {
         public class OnInputReportArgs
         {
