@@ -5,6 +5,11 @@ namespace Blazm.Hid
 {
 	public interface IHidDevice
 	{
+		public ushort? VendorId { get; set; }
+		public ushort? ProductId { get; set; }
+
+		public string? ProductName { get; set; }
+
 		public bool Opened { get; }
 		Task OpenAsync();
 		Task CloseAsync();
@@ -15,6 +20,7 @@ namespace Blazm.Hid
 		event EventHandler Connected;
 
 		event EventHandler Disconnected;
+
 	}
 
 }
